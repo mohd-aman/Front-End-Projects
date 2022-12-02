@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="slider">
+        <div class="slide fade" style="display: block;">
+            <img src="https://images.unsplash.com/photo-1466854076813-4aa9ac0fc347?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" alt="">
+        </div>
+        <div class="slide fade">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1474&q=80" alt="">
+        </div>
+        <div class="slide fade">
+            <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+        </div>
+        <div class="btn prev"><</div>
+        <div class="btn next">></div>
+    </div>
+</body>
+<script>
+    let currentSlide = 0;
+    let slides = document.querySelectorAll(".slide");
+    
+    let nextBtn = document.querySelector(".next");
+    let prevBtn = document.querySelector(".prev");
+    function next(){
+        let nextSlide = (currentSlide+1)%slides.length;
+        slides[currentSlide].style.display = "none";
+        slides[nextSlide].style.display = "block";
+        currentSlide = nextSlide;
+    }
+    nextBtn.addEventListener("click",next)
+
+    prevBtn.addEventListener("click",function(){
+        let prevSlide = currentSlide == 0?slides.length-1:currentSlide-1;
+        slides[currentSlide].style.display = "none";
+        slides[prevSlide].style.display = "block"
+        currentSlide = prevSlide;
+    })
+
+    setInterval(next,5000)
+</script>
+</html>

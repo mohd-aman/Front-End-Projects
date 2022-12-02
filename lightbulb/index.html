@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Bulb</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="bulb-container">
+        <div class="wire"></div>
+        <div class="wire-connection"></div>
+        <div class="top-socket"></div>
+        <div class="bottom-socket"></div>
+        <div class="socket-back"></div>
+        <div class="light-bulb bulb-top "></div>
+        <div class="light-bulb bulb-bottom "></div>
+    </div>
+    <div class="switch-container">
+        <div class="switch-cover">
+            <div class="screw"></div>
+            <div class="switch"></div>
+            <div class="screw "></div>
+        </div>
+    </div>
+</body>
+<script>
+    let isOpen = false;
+    let btn = document.querySelector(".switch");
+    let bulb = document.querySelectorAll(".light-bulb");
+    btn.addEventListener("click",function(){
+        if(isOpen){
+            btn.classList.remove("on");
+            bulb[0].classList.remove("bulbOn");
+            bulb[1].classList.remove("bulbOn");
+        }else{
+            btn.classList.add("on");
+            bulb[0].classList.add("bulbOn");
+            bulb[1].classList.add("bulbOn");
+        }
+        isOpen = !isOpen;
+    })
+
+</script>
+</html>

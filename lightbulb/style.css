@@ -1,0 +1,126 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+
+.switch-container{
+    width: 20%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch-cover{
+    background: grey;
+    width: 80px;
+    height: 120px;
+    border-radius: 5px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 0px 5px darkgrey;
+}
+
+.screw{
+    width: 5px;
+    margin: 10px;
+    height: 5px;
+    background-color: darkgrey;
+    border-radius: 5px;
+}
+
+.switch{
+    background:linear-gradient(darkgrey, grey);
+    position: relative;
+    width: 40px;
+    height: 60px;
+    border-bottom: 5px solid darkgrey;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;;
+}
+
+.bulb-container{
+    width: 40%;
+    height: 100vh;
+    align-self: center;
+}
+
+.wire{
+    width: 10px;
+    background: grey;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.wire-connection{
+    width: 15px;
+    height: 15px;
+    background-color: dimgray;
+    margin: 0 auto;
+    border-radius: 15px 15px 0 0;
+    margin-top:-5px;
+}
+
+.top-socket{
+    width: 50px;
+    height: 20px;
+    margin: 0 auto;
+    background:grey;
+    border-radius: 50px 50px 0 0;
+    margin-top: -3px;
+    border-bottom: 1px solid black;
+}
+
+.bottom-socket{
+    width: 50px;
+    height: 30px;
+    margin: 0 auto;
+    background: grey;
+}
+
+.socket-back{
+    margin: 0 auto;
+    width: 50px;
+    height: 10px;
+    background-color: grey;
+    border-radius: 50%;
+    margin-top: -5px;
+    opacity: 0.5;
+}
+
+.bulb-top{
+    width: 46px;
+    height: 30px;
+    background:lightgray;
+    margin: 0 auto;
+    margin-top: -8px;
+    border-radius: 10px 10px 0 0;
+}
+
+.bulb-bottom{
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: lightgray;
+    border-radius: 50%;
+    margin-top: -15px;
+}
+
+.on{
+    background:linear-gradient( grey,darkgrey);
+    border-top: 5px solid darkgrey;
+    border-bottom: 1px solid black;
+}
+
+.bulbOn{
+    background: lightyellow;
+    box-shadow: 0px 8.5px 24px 3px lightyellow;
+}

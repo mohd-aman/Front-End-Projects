@@ -1,0 +1,73 @@
+body{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+}
+
+.wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 50%;
+}
+
+svg{
+    /* background-color: whitesmoke; */
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+}
+
+.svg-loader{
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.loader{
+    animation: dash 1.5s ease-in-out infinite;
+    stroke-linecap: round;
+}
+
+
+  @keyframes dash {
+    0% {
+      stroke-dasharray:1, 510;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 350,510;
+      stroke-dashoffset: -150;
+    }
+    100% {
+      stroke-dasharray: 480,510;
+      stroke-dashoffset: -510;
+    }
+  }
+  
+.loader-line{
+  animation: line-dash 1.5s ease-in-out infinite ;
+}
+@keyframes line-dash {
+    0%{
+        stroke-dasharray: 5,200;
+        stroke-dashoffset: 0;
+    }
+    50%{
+        stroke-dasharray: 140,200;
+        stroke-dashoffset: -60
+    }
+    100%{
+        stroke-dasharray: 140,200;
+        stroke-dashoffset: -200;
+    }
+}
+
+
