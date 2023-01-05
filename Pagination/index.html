@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="prev btn"><i class="fa-solid fa-circle-chevron-left"></i></div>
+        <ul class="page-container">
+            <li class="page active">1</li>
+            <li class="page">2</li>
+            <li class="page">3</li>
+            <li class="page">4</li>
+            <li class="page">5</li>
+        </ul>
+        <div class="next btn"><i class="fa-solid fa-circle-chevron-right"></i></div>
+    </div>
+</body>
+<script>
+    let currentPage = 0;
+    let nextBtn = document.querySelector(".next");
+    let prevBtn = document.querySelector(".prev");
+    let pages = document.querySelectorAll(".page");
+    nextBtn.addEventListener("click",function(){
+        if(currentPage == pages.length-1){
+            return;
+        }
+        pages[currentPage++].classList.remove("active");
+        pages[currentPage].classList.add("active");
+    })
+
+    prevBtn.addEventListener("click",function(){
+        if(currentPage == 0){
+            return;
+        }
+        pages[currentPage--].classList.remove("active");
+        pages[currentPage].classList.add("active");
+    })
+
+    for(let i=0;i<pages.length;i++){
+        pages[i].addEventListener("click",function(){
+            if(currentPage == i){
+                return;
+            }
+            pages[currentPage].classList.remove("active");
+            pages[i].classList.add("active");
+            currentPage = i;
+        })
+    }
+
+</script>
+</html>
