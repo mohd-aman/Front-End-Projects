@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.hamburger{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+}
+
+.bar-top,
+.bar-middle,
+.bar-bottom{
+    height: 3px;
+    background-color: black;
+    border-radius: 5px;
+    margin: 3px 0;
+    transform-origin: left;
+    transition: all 0.5s;
+}
+
+.hamburger.active .bar-top{
+    transform: rotate(45deg);
+}
+
+.hamburger.active .bar-middle{
+    transform: translateX(1rem);
+    opacity: 0;
+}
+
+.hamburger.active .bar-bottom{
+    transform: rotate(-45deg);
+}
