@@ -24,7 +24,7 @@ enterKey.addEventListener("click",function(){
 
 spaceKey.addEventListener("click",function(){
     let content = textContainer.innerText;
-    let newContent = content+ ' ';
+    let newContent = content+ '\u00A0';
     textContainer.innerText = newContent;
 })
 
