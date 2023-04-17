@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="modal">
+        <h2>Pop Up Modal</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptas, earum soluta excepturi porro explicabo, maxime aspernatur totam modi illum tenetur nemo, laboriosam itaque? Non laborum nobis officiis recusandae harum.</p>
+        <div class="btn modalBtn">Close</div>
+    </div>
+    <div class="btn clickMe">
+        Click Me
+    </div>
+</body>
+<script>
+    let body = document.querySelector("body");
+    let modalBtn = document.querySelector(".modalBtn");
+    let clickMeBtn = document.querySelector(".clickMe");
+    clickMeBtn.addEventListener("click",function(){
+        body.classList.add("active");
+    })
+    modalBtn.addEventListener('click',function(){
+        body.classList.remove("active");
+    })
+</script>
+</html>

@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transition: all 0.5s;
+}
+
+.btn{
+    width: 12rem;
+    height: 3rem;
+    border-radius: 3rem;
+    border:2px solid lightcoral;
+    color: lightcoral;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+    color: white;
+    background-color: lightcoral;
+}
+
+.modal{
+    width: 30rem;
+    height: 20rem;
+    background-color: white;
+    display: none;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 2rem;
+    position: absolute;
+    top:0;
+    animation: show 0.5s;
+    
+}
+
+@keyframes show {
+    0%,1%{
+        transform: translateY(-99%);
+    }
+    99%,100%{
+        transform: translateY(0%);
+    }
+}
+
+.modalBtn{
+    width: 9rem;
+    height: 2rem;
+}
+
+.active{
+    background-color: lightcoral;
+}
+
+.active .modal{
+    display: flex;
+}
+
+.active .clickMe{
+    display: none;
+}
