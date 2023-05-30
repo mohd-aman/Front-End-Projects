@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Analog Clock</h1>
+    <div class="clock">
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+</body>
+
+<script>
+    let hour = document.querySelector(".hour");
+    let minute = document.querySelector(".minute");
+    let second = document.querySelector(".second");
+    // in one rotation there is 360 deg
+    // in 12 hour there is 360deg =>  1 hour = 30deg
+    // in 60 mints there is 360deg => 1 mint = 6deg
+    // in 60 secs there is 360 deg => 1 sec = 6deg
+
+    function clock(){
+        
+        let date = new Date();
+        // console.log(date);
+        let hr = date.getHours();
+        let mint = date.getMinutes();
+        let sec = date.getSeconds();
+        hour.style.transform = `rotateZ(${hr*30 + mint/12}deg)`;
+        minute.style.transform = `rotateZ(${mint*6}deg)`;
+        second.style.transform = `rotateZ(${sec*6}deg)`;
+    }
+    clock();
+    setInterval(clock,1000);
+</script>
+</html>

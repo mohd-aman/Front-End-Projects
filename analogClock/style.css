@@ -1,0 +1,76 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.clock{
+    height: 30rem;
+    width: 30rem;
+    background: url("https://media.istockphoto.com/id/1014875730/vector/clock-face-blank-hour-dial-dashes-mark-minutes-and-hours-simple-flat-vector-illustration.jpg?s=612x612&w=0&k=20&c=Z4E98A5tq-ANDKy7LHmp6YIpfRg9xcftPTfZVuMheow=");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock::before{
+    content: "";
+    height: 10px;
+    width: 10px;
+    background-color: black;
+    position: absolute;
+    z-index: 100;
+    border-radius: 50%;
+}
+
+.hour,.minute,.second{
+    position: absolute;
+    display:flex;
+    justify-content: center;
+}
+
+.hour{
+    height: 11rem;
+    width: 11rem;
+    display: flex;
+    justify-content: center;
+}
+
+.hour::before{
+    content: "";
+    height: 50%;
+    width: 6px;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+.minute{
+    height: 13rem;
+    width: 13rem;
+}
+
+.minute::before{
+    content: "";
+    height: 50%;
+    width: 4px;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+
+
+.second{
+    height: 15rem;
+    width: 15rem;
+}
+
+.second::before{
+    content: "";
+    height: 50%;
+    width: 2px;
+    border-radius: 10px;
+    background-color: red;
+}
