@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container{
+    width: 600px;
+    height: 600px;
+    background-color: lightgray;
+    box-shadow: 0px 0px 10px 1px burlywood;
+    padding: 2rem;
+}
+
+h2{
+    padding: 1rem;
+    text-align: center;
+}
+
+.icon-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 40%;
+}
+
+.icon{
+    font-size: 5rem;
+    transition: all 0.5s;
+    color: burlywood;
+}
+
+.icon-container .icon:hover{
+    transform: scale(1.4);
+}
+
+.selection-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    height: 30%;
+}
+
+h1{
+    text-align: center;
+}
