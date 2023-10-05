@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.parent{
+    height: 100vh;
+    width: 100vw;
+    background-color: aliceblue;
+}
+
+.child{
+    height: 100px;
+    width: 100px;
+    background-color: red;
+}
+
+/* 1 */
+
+/* .parent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+/* 2 */
+/* 
+.parent{
+    display: flex;
+}
+
+.child{
+    margin: auto;
+} */
+
+
+/* 3 */
+/* 
+.parent{
+    position: relative;
+}
+
+.child{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+} */
+
+/* 4 */
+
+/* .parent{
+    display: grid;
+    place-items: center;
+} */
+
+/* 5 */
+
+.parent{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.child{
+    display: inline-block;
+}
