@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Reader</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js" integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <h1>QR Code Reader</h1>
+    <div class="container">
+        <input type="file" hidden>
+        <div class="icon"><i class="fa-sharp fa-solid fa-cloud-arrow-up"></i></div>
+        <div id="reader" class="qr"></div>
+        <div class="text"></div>
+    </div>
+</body>
+<script>
+    let btn = document.querySelector(".icon");
+    let input = document.querySelector("input");
+    let textDiv = document.querySelector(".text");
+    let qr = document.querySelector(".qr")
+    const html5QrCode = new Html5Qrcode("reader");
+    btn.addEventListener("click",function(){
+        input.click();
+    })
+    input.addEventListener("change",function(e){
+        let file = e.target.files[0];
+        if(!file){
+            return;
+        }
+        html5QrCode.scanFile(file, true)
+        .then(function(decodedText){
+            console.log(decodedText);
+            textDiv.style.display = "flex";
+            qr.style.display = "flex";
+            textDiv.innerHTML = decodedText;
+        })
+        .catch(function(err){
+            console.log("Error: ", err);
+        }
+        )
+    })
+</script>
+</html>

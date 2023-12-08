@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    background-color: #F9F7F7;
+}
+
+.container{
+    margin: auto;
+    height: 20rem;
+    width: 30rem;
+    background-color: #DBE2EF;
+    border-radius: 10px;
+    color: #112D4E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+input{
+    width: 30%;
+    outline: none;
+    border: none;
+    padding: 10px;
+}
+
+.fact{
+    height: 40%;
+    font-size: 1.25rem;
+    width: 70%;
+    text-align: center;
+}

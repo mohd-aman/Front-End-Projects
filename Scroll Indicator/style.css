@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 400vh;
+    text-align: center;
+}
+
+header{
+    position: fixed;
+    top:0;
+    background-color: #A0C3D2;
+    width: 100%;
+    color: white;
+    height: 5rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+}
+
+.content{
+    margin-top: 5rem;
+}
+
+.scrollBar{
+    background-color: whitesmoke;
+    height: 5px;
+    width: 0%;
+}

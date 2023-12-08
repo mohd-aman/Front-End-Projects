@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+}
+
+.container{
+    width: 35rem;
+    height: 40rem;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0px lightgrey;
+    overflow: hidden;
+}
+
+.form-container,.overlay-container{
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.social-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.social-container a{
+    padding: 0.25rem;
+    color: grey;
+    border-radius: 50%;
+    border: 1px solid grey;
+}
+.social-container i{
+    font-size: 1.25rem;
+}
+
+span{
+    color: grey;
+}
+
+input{
+    width: 80%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: lightgray;
+}
+
+.btn{
+    width: 10rem;
+    height: 3rem;
+    background-color: lightcoral;
+    border: none;
+    color: white;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    transition: all 0.6s;
+}
+
+.btn:hover{
+    filter: brightness(1.1);
+}
+
+.btn:active{
+    transform: scale(0.9);
+}
+
+.overlay-container{
+    background-color: lightcoral;
+    color: white;
+}
+
+.overlay-container .btn{
+    background-color: white;
+    color: lightcoral;
+}
+
+.sign-up{
+    display: none;
+    
+}
+
+.top-overlay{
+    display: none;
+    
+}
+
+.container.active .sign-up{
+    display: flex;
+    transform:translateY(20rem) ;
+    animation: show 1s;
+}
+
+.container.active .sign-in{
+    display: none;
+}
+
+.container.active .bottom-overlay{
+    display: none;
+}
+
+.container.active .top-overlay{
+    display: flex;
+    transform: translateY(-20rem);
+    animation: show 1s;
+}
+
+@keyframes show{
+    0%,1%{
+        transform: translateY(0rem);;
+    }
+}
+
+.sign-in{
+    animation: a 1s;
+}
+
+.bottom-overlay{
+    animation: b 1s;
+}
+
+@keyframes a {
+    0%,1%{
+        transform: translateY(20rem);
+    }
+}
+
+@keyframes b {
+    0%,1%{
+        transform: translateY(-20rem);
+    }
+}

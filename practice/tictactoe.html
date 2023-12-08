@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="icon" href="https://static.thenounproject.com/png/1267357-200.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            margin: 50px auto;
+            max-width: 300px;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        .board .cell {
+            width: 100px;
+            height: 100px;
+            font-size: 24px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .status {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .restart-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <div id="board" class="board">
+            <!-- The board will be dynamically generated using JavaScript -->
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <p id="status" class="status">Player X's turn</p>
+        <button id="restartButton" class="restart-button">Restart Game</button>
+    </div>
+    <script>
+            const board = document.getElementById("board");
+            const status = document.getElementById("status");
+            const restartButton = document.getElementById("restartButton");
+
+            let currentPlayer = "X";
+            let boardState = ["", "", "", "", "", "", "", "", ""];
+
+            function checkWin() {
+                const winPatterns = [
+                    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                    [0, 4, 8], [2, 4, 6] // Diagonals
+                ];
+
+                for (const pattern of winPatterns) {
+                    const [a, b, c] = pattern;
+                    if (boardState[a] && boardState[a] === boardState[b] && boardState[a] === boardState[c]) {
+                        return boardState[a];
+                    }
+                }
+
+                if (boardState.includes("")) {
+                    return null; // Game still ongoing
+                }
+
+                return "Tie"; // It's a tie if the board is full without a winner
+            }
+
+            function handleClick(event) {
+                const cell = event.target;
+                const cellIndex = cell.dataset.index;
+
+                if (boardState[cellIndex] === "" && !checkWin()) {
+                    boardState[cellIndex] = currentPlayer;
+                    cell.textContent = currentPlayer;
+                    cell.classList.add("occupied");
+
+                    const winner = checkWin();
+                    if (winner) {
+                        if (winner === "Tie") {
+                            status.textContent = "It's a tie!";
+                        } else {
+                            status.textContent = `Player ${winner} wins!`;
+                        }
+                    } else {
+                        currentPlayer = currentPlayer === "X" ? "O" : "X";
+                        status.textContent = `Player ${currentPlayer}'s turn`;
+                    }
+                }
+            }
+
+            function restartGame() {
+                boardState = ["", "", "", "", "", "", "", "", ""];
+                currentPlayer = "X";
+                status.textContent = "Player X's turn";
+
+                const cells = document.querySelectorAll(".cell");
+                cells.forEach(cell => {
+                    cell.textContent = "";
+                    cell.classList.remove("occupied");
+                });
+            }
+
+            board.addEventListener("click", handleClick);
+            restartButton.addEventListener("click", restartGame);
+
+    </script>
+</body>
+
+</html>

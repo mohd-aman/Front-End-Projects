@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+div{
+    display: block;
+    background-color: red;
+}
+
+span{
+    display: inline;
+    background-color: aqua;
+}
+
+img{
+    display: inline-block;
+    background-color:thistle;
+    width: 40px;
+    height: 40px;
+}
+
+/* .first{
+    display: flex;
+    display: grid;
+} */

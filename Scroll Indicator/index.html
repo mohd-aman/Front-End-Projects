@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Indicator
+    </title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Scroll Indicator</h1>
+        <div class="scrollBar">
+            
+        </div>
+    </header>
+    <div class="content">
+        <h2>Scroll to see the effect</h2>
+    </div>
+</body>
+<script>
+    let scrollBar = document.querySelector(".scrollBar")
+    window.addEventListener("scroll",function(){
+        let clientHeight = document.documentElement.clientHeight;
+        let scrollHeight = document.documentElement.scrollHeight;
+        let scrollTop = document.documentElement.scrollTop;
+        let height = scrollHeight-clientHeight;
+        let scrollPercentage = (scrollTop/height)*100;
+        scrollBar.style.width = scrollPercentage+"%";
+    })
+</script>
+</html>

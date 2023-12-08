@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Progress Bars</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #progress-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .progress-bar {
+            width: 20px;
+            height: 20px;
+            background-color: brown;
+            border-radius: 12px;
+            margin: 10px;
+            transition: width 1s ease-in-out;
+        }
+        .bar{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <button id="add-progress-button">Add Progress Bar</button>
+    <div id="progress-container">
+        
+    </div>
+
+    <script>
+        const addButton = document.getElementById("add-progress-button");
+        const progressContainer = document.getElementById("progress-container");
+        let activeBar = 0; // Flag to check if a progress bar is currently animating
+        let queue = []; // Queue to store progress bars to be animated
+        
+        progressContainer.addEventListener("click",function(e){
+            if(e.target.className == 'remove-btn'){
+                e.target.parentElement.remove();
+            }
+        })
+
+        addButton.addEventListener("click", () => {
+            if (activeBar<5) {
+                // If no progress bar is currently animating, create and animate a new one
+                createAndAnimateProgressBar();
+            } else {
+                // If a progress bar is animating, add the new progress bar to the queue
+                queue.push(createProgressBar());
+            }
+        });
+
+        function createProgressBar() {
+            const progressBar = document.createElement("div");
+            progressBar.className = "bar";
+            progressBar.innerHTML = `<div class="progress-bar"></div>
+            <button class="remove-btn">Remove</button>`;
+            progressContainer.appendChild(progressBar);
+            return progressBar.querySelector('.progress-bar');
+        }
+
+        function createAndAnimateProgressBar() {
+            const progressBar = queue.length>0?queue.shift():createProgressBar();
+            activeBar++;
+            // Animate the progress bar
+            let currentWidth = 0;
+            let interval = setInterval(() => {
+                currentWidth += 40; // Increase the width by 20% (20% every 1 second)
+                progressBar.style.width = currentWidth + "px";
+                if (currentWidth > 200) {
+                    clearInterval(interval); // Stop the animation when it reaches 100%
+                    activeBar--;
+                    if (queue.length > 0) {
+                        // If there are progress bars in the queue, animate the next one
+                        createAndAnimateProgressBar();
+                    }
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
+

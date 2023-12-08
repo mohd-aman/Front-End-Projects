@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: whitesmoke;
+}
+
+.container{
+    height: 35rem;
+    width: 30rem;
+    background-color: white;
+    box-shadow: 0 0 20px 2px lightgrey;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.icon{
+    font-size: 4rem;
+}
+
+.qr{
+    display: none;
+}
+
+.text{
+    display: none;
+}

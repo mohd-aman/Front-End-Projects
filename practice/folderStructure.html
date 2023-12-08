@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folder Stucture</title>
+    <style>
+        .folder{
+            cursor: pointer;
+        }
+        .folder-content{
+            content: "";
+            border-left: 2px solid grey;
+            padding: 5px;
+            margin-left: 30px;
+        }
+        .expand{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="root">
+    </div>
+    <script>
+        const rootFolder = {
+            name:"Root",
+            folders:[
+                {
+                    name:"Folder 1",
+                    folders:[{
+                        name:"Sub Folder 1",
+                        folders:[],
+                        files:[{name:"file 1"},{name:"file 2"}]
+                    }],
+                    files:[]
+                },
+                {
+                    name:"Folder 2",
+                    folders:[],
+                    files:[]
+                }
+            ],
+            files:[{name:"Root File"}]
+        }
+        const rootElement = document.querySelector(".root");
+
+        //expand and hide
+        rootElement.addEventListener("click",function(e){
+            if(e.target.classList.contains("folder")&&
+               !e.target.children[0].classList.contains("expand")){
+                    e.target.children[0].classList.add("expand");
+            }else if(e.target.classList.contains('folder') &&
+                     e.target.children[0].classList.contains("expand")){
+                    e.target.children[0].classList.remove("expand");
+            }
+        })
+        
+        function renderFolder(folder,parentElement){
+            const folderElement = document.createElement("div");
+            folderElement.className = "folder";
+            if(parentElement!=rootElement){
+                folderElement.classList.add("folder-content")
+            }
+            folderElement.textContent = `📂 ${folder.name}`;
+            const folderContainer = document.createElement("div");
+            folderElement.appendChild(folderContainer);
+            for(let file of folder.files){
+                const fileElement = document.createElement('div')
+                fileElement.classList.add("folder-content");
+                fileElement.textContent = file.name;
+                folderContainer.appendChild(fileElement);
+            }
+            parentElement.appendChild(folderElement);
+            if(folder.folders.length>0){
+                for(let obj of folder.folders){
+                    renderFolder(obj,folderContainer);
+                }
+            }
+        }
+        renderFolder(rootFolder,rootElement);
+    </script>
+</body>
+</html>

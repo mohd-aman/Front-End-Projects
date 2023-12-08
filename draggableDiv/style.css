@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: thistle;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container{
+    height: 400px;
+    width: 500px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+
+}
+
+.draggable{
+    background-color: black;
+    height: 100px;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: default;
+}
+
+.draggable.active{
+    cursor:move;
+}
